@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=a\ b
+comment0.target=Polynomial(double,\ int)
+comment1.params=
+comment1.target=int\ degree()
+comment10.params=polynomial
+comment10.target=Polynomial\ interpret(java.lang.String)
+comment11.params=args
+comment11.target=void\ main(java.lang.String[])
+comment11.text=\r\n\ Test\ Program\r\n
+comment2.params=b
+comment2.target=Polynomial\ plus(Polynomial)
+comment3.params=b
+comment3.target=Polynomial\ minus(Polynomial)
+comment4.params=b
+comment4.target=Polynomial\ times(Polynomial)
+comment5.params=b
+comment5.target=Polynomial\ compose(Polynomial)
+comment6.params=b
+comment6.target=boolean\ eq(Polynomial)
+comment7.params=x
+comment7.target=double\ evaluate(int)
+comment8.params=
+comment8.target=Polynomial\ differentiate()
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=12

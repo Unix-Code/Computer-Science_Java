@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Character()
+comment1.params=name\ race\ charAge\ sClass\ sex\ str\ con\ dex\ intel\ wis\ cha\ arm
+comment1.target=Character(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ java.lang.String,\ int,\ int,\ int,\ int,\ int,\ int,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getname()
+comment3.params=
+comment3.target=int\ getstr()
+comment4.params=
+comment4.target=int\ getcon()
+comment5.params=
+comment5.target=int\ getdex()
+comment6.params=
+comment6.target=int\ getintel()
+comment7.params=
+comment7.target=int\ gethealth()
+comment8.params=
+comment8.target=int\ getarm()
+comment9.params=
+comment9.target=void\ printCharacterSheet()
+numComments=10

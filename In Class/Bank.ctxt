@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Bank()
+comment1.params=a\ b\ c
+comment1.target=Bank(BankAccount,\ BankAccount,\ BankAccount)
+comment10.params=
+comment10.target=void\ printCompanyReport()
+comment2.params=
+comment2.target=void\ fireBigShots()
+comment3.params=raise
+comment3.target=void\ giveTellersRaise(double)
+comment4.params=newPresident\ newVicePrez
+comment4.target=void\ replaceBigShots(Employee,\ Employee)
+comment5.params=
+comment5.target=java.lang.String\ getTotalFunds()
+comment6.params=fee
+comment6.target=void\ chargeFees(double)
+comment7.params=newInterest
+comment7.target=void\ setInterest(double)
+comment8.params=
+comment8.target=void\ addInterest()
+comment9.params=
+comment9.target=void\ printAllAccounts()
+numComments=11

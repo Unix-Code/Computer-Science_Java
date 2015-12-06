@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ commandLine()
+comment1.params=check
+comment1.target=boolean\ checkSyntax(int)
+numComments=2

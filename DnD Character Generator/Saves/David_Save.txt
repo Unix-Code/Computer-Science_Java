@@ -1,0 +1,12 @@
+David, the 20 year old Elf Warrior
+
+His Stats:
+
+	Strength: 19
+	Constitution: 16
+	Dexterity: 5
+	Intelligence: 17
+	Wisdom: 12
+	Charisma: 16
+	Hitpoints: 16
+	Armour: 0

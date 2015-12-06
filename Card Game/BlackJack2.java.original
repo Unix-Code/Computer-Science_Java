@@ -1,0 +1,177 @@
+import java.util.*;
+public class BlackJack2 {
+    private ArrayList<Card> hand1 = new ArrayList<Card>();
+    private ArrayList<Card> hand2 = new ArrayList<Card>();
+    theDeck deck = new theDeck();
+
+    Scanner Scan = new Scanner(System.in);
+
+    public void start() {
+        deal();
+        System.out.print("\f");
+        System.out.print("Hit Enter to Start");
+        Scanner userInputScanner = new Scanner(System.in);
+        String cmdStart = userInputScanner.nextLine();
+        if (cmdStart.equals("")) {
+            try {
+                Thread.sleep(1000);                 //1000 milliseconds is one second.
+            }  catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            System.out.println("\fDealing Out Hands\n");
+            try {
+                Thread.sleep(1000);                 //1000 milliseconds is one second.
+            }  catch(InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
+            // System.out.println(hand1.get(0).getValue());
+            blackjack();
+        }
+    }
+
+    public void deal() {
+        deck.shuffle();
+        for (int i = 0; i < deck.getDeck().size(); i++) {
+            if (i < 2) {
+                hand1.add(deck.getDeck().get(i));
+                deck.getDeck().remove(i);
+            }
+            else if (i < 4 && i >= 2) {
+                hand2.add(deck.getDeck().get(i));
+                deck.getDeck().remove(i);
+            }
+        }
+
+    }
+
+    public void blackjack() {
+        /*System.out.println(hand1 + " " + hand2);
+        int[] temp = sum();
+        System.out.println(temp[0] + " " + temp[1]);
+        hand1.add(deck.getDeck().get(0));
+        System.out.println(hand1 + " " + hand2);
+        deck.getDeck().remove(0);
+        temp = sum();
+        System.out.println(temp[0] + " " + temp[1]);*/
+        boolean validInput = false;
+        String move;
+        int playerNum = 1;
+        int stayCount = 0;
+        // int compareStayCount = 0;
+
+        System.out.print("\f");
+        while (sum()[0] < 21 && sum()[1] < 21 && validInput != true && stayCount < 2) {
+            while (validInput != true) {
+                System.out.println("Player " + playerNum + "'s turn");
+                System.out.println("\nYour hand: " + ((playerNum == 1) ? hand1 : hand2));
+                // System.out.print((playerNum == 1) ? hand1 : hand2);
+                System.out.println("Your Move?");
+                move = Scan.nextLine();
+                // compareStayCount = stayCount;
+                if (move.equalsIgnoreCase("Hit")) {
+                    validInput = true;
+                    playerMove(0, playerNum);
+                    // validInput = false;
+                }
+                else if (move.equalsIgnoreCase("Stay")) {
+                    validInput = true;
+                    playerMove(1, playerNum);
+                    stayCount++;
+                    // validInput = false;
+                }
+                else if (move.equalsIgnoreCase("Quit")) {
+                    validInput = true;
+                    return;
+                    //playerMove(2, playerNum);
+                    // validInput = false;
+                }
+                else {
+                    System.out.println("\nError: Invalid Command\n");
+                }
+            }
+
+            if (stayCount > 0) {
+                playerNum++;
+            }
+
+            validInput = false;
+
+        }
+        System.out.println("Player 1's hand: " + hand1 + "\nPlayer 2's hand: " + hand2);
+        System.out.println("\nGame Over\n");
+        String winner;
+        if (sum()[0] == 21 || sum()[1] == 21) {
+            winner = (sum()[0] == 21) ? "Player 1" : "Player 2";
+            System.out.println(winner + " got Black Jack\n" + winner + " wins!");
+        }
+        else if (sum()[0] > 21 || sum()[1] > 21) {
+            winner = (sum()[0] > 21) ? "Player 2" : "Player 1";
+            System.out.println(((sum()[0] > 21) ? "Player 1" : "Player 2") + " busts\n" + winner + " wins!");
+        }
+        else if (stayCount == 2) {
+            winner = (sum()[0] > sum()[1]) ? "Player 1" : "Player 2";
+            System.out.println(winner + " got the larger hand\n" + winner + " wins!");
+        }
+        System.out.println("\n");
+        return;
+    }
+
+    public int[] sum() {
+        int[] sum = new int[2];
+
+        ArrayList<Card> handNum = hand1;
+        int temp = 0;
+        while (temp < 2) {
+            switch (temp) {
+                case 0 :
+                handNum = hand1;
+                break;
+
+                case 1:
+                handNum = hand2;
+                break;
+            }
+            for (int i = 0; i < handNum.size(); i++) {
+                if ((handNum.get(i).getValue() + 2) > 10 && (handNum.get(i).getValue() + 2) < 14) {
+                    sum[temp] += 10;
+                }
+                else if (handNum.get(i).getValue() + 2 <= 10){
+                    sum[temp] += handNum.get(i).getValue() + 2;   
+                }
+            }
+            for (int j = 0; j < handNum.size(); j++) {
+                if (handNum.get(j).getValue() + 2 == 14) {
+                    if (sum[temp] + 11 == 21) {
+                        sum[temp] += 11;
+                    }
+                    else {
+                        sum[temp] += 1;
+                    }
+                }
+            }
+            temp ++;
+        }
+
+        return sum;
+    }
+
+    public void playerMove(int inMove, int inPlayerNum) {
+        switch (inMove) {
+            case 0 :
+            System.out.println("\nYou chose to hit\n");
+            if (inPlayerNum == 1) {
+                hand1.add(deck.getDeck().get(0));
+            }
+            else {
+                hand2.add(deck.getDeck().get(0));
+            }
+            deck.getDeck().remove(0);
+            break;
+
+            case 1 :
+            System.out.println("\nYou chose to stay\n");
+
+            break;
+        }
+    }
+}

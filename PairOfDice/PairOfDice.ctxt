@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=PairOfDice()
+comment1.params=inNumSides1\ inNumSides2
+comment1.target=void\ setNumSides(int,\ int)
+comment2.params=
+comment2.target=void\ roll()
+comment3.params=
+comment3.target=int\ getDie1()
+comment4.params=
+comment4.target=int\ getDie2()
+comment5.params=
+comment5.target=int\ getTotal()
+numComments=6
