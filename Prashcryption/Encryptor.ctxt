@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=sStart
+comment0.target=Message\ encrypt(Message)
+comment1.params=sStart
+comment1.target=Message\ decrypt(Message)
+numComments=2

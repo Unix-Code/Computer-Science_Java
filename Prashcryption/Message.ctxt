@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Message()
+comment1.params=message
+comment1.target=Message(java.lang.String)
+comment2.params=message\ encrypted
+comment2.target=Message(java.lang.String,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ getMessage()
+comment4.params=
+comment4.target=boolean\ isEncrypted()
+numComments=5
