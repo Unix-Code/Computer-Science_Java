@@ -9,7 +9,13 @@ public class Polynomial {
         coef[b] = a;
         deg = degree();
     }
-
+    
+    public Polynomial(String polynomial) {
+        Polynomial temp = interpret(polynomial);
+        this.coef = temp.coef;
+        this.deg = temp.deg;
+    }
+    
     // return the degree of this polynomial (0 for the zero polynomial)
     public int degree() {
         int d = 0;
@@ -88,7 +94,7 @@ public class Polynomial {
     }
 
     // use Horner's method to compute and return the polynomial evaluated at x
-    public double evaluate(int x) {
+    public double evaluate(double x) {
         double p = 0;
         for (int i = deg; i >= 0; i--) {
             p = coef[i] + (x * p); 
@@ -153,7 +159,7 @@ public class Polynomial {
                 monoms.remove(i);
             }
         }
-        System.out.println(monoms);
+        // System.out.println(monoms);
 
         //removes x's
         for (int i = 0; i < monoms.size(); i++) {
@@ -177,13 +183,13 @@ public class Polynomial {
             }
             monoms.set(i, sFinal);
         }
-        System.out.println(monoms);
+        // System.out.println(monoms);
 
         //splits by ^'s ([0] is coeff and [1] is degree)
         for (int i = 0; i < monoms.size(); i++) {
             sTemp.add(monoms.get(i).split("[//^]+"));
         }
-        System.out.println(sTemp);
+        // System.out.println(sTemp);
 
         //creates monomials
         for (int i = 0; i < sTemp.size(); i++) {
@@ -191,11 +197,11 @@ public class Polynomial {
                 monomials.add(new Polynomial(Double.parseDouble(sTemp.get(i)[0]), 1));
             }
             else {
-                System.out.println((sTemp.get(i).length > 1) ? sTemp.get(i)[0] + " " + sTemp.get(i)[1] : sTemp.get(i)[0] + " 1");
+                // System.out.println((sTemp.get(i).length > 1) ? sTemp.get(i)[0] + " " + sTemp.get(i)[1] : sTemp.get(i)[0] + " 1");
                 monomials.add(new Polynomial(Double.parseDouble(sTemp.get(i)[0]), Integer.parseInt(sTemp.get(i)[1])));
             }
         }
-        System.out.println(monomials);
+        // System.out.println(monomials);
 
         //constructs polynomial from monomials
         for (int i = 0; i < monomials.size(); i++) {
